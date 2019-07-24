@@ -15,6 +15,14 @@ module.exports = {
       done: {
         type: Sequelize.BOOLEAN
       },
+      ContextId:{
+        type : Sequelize.UUID,
+        onDelete :'CASCADE',
+        references : {
+          model:'Contexts',
+          hey:'id'
+        }
+      },
       description: {
         type: Sequelize.TEXT
       },
