@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.Context, {
+      foreignKey: 'UserId',
+      onDelete :'CASCADE'  //to delete also context
+    });
   };
   return User;
 };
