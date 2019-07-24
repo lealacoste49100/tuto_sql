@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Task = sequelize.define('Task', {
-    name: DataTypes.STRING,
+    id : {allowNull : false, primaryKey : true, type : DataTypes.UUID, defaultValue : DataTypes.UUID},
+    name: {type : DataTypes.STRING, allowNull : false, validate : {len : {args : [3,50], msg : "Your to-do item name must be 3 and 50 characters. Please try again."}}},
     done: DataTypes.BOOLEAN,
     description: DataTypes.TEXT
   }, {});
